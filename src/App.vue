@@ -1,17 +1,20 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+    <img id="logo" class="img-responsive" src="https://web.grupomateus.com.br/static/images/logo_grupo.513abbaedcbb.png" alt="Mateus. Somos um só coração.">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <CheckoutList></CheckoutList>
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import CheckoutList from './components/CheckoutList'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    HelloWorld,
+    CheckoutList
   }
 }
 </script>
@@ -23,6 +26,11 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  background-color:#2980b9;
+}
+
+#app img {
+  margin-top: 30px;
+  width: 150px;  
 }
 </style>

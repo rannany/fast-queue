@@ -2,7 +2,7 @@
     <div class="tile is-parent">
         <div class="tile is-child box">
             <p class="title"> <i class="fas fa-list"></i> Lista de compras</p>
-            <button class="button is-success is-fullwidth"> <i class="fas fa-check"></i>  Conferir produtos</button>
+            <button class="button is-warning is-fullwidth"> <i class="fas fa-check"></i>  Conferir produtos</button>
             <br>
             <br>
             <b-table :data="produtos" :columns="columns"></b-table>

@@ -1,23 +1,31 @@
 <template>
-    <div class="tile is-parent">
+    <div> 
+        <div class="tile is-parent">
         <div class="tile is-child box">
             <p class="title"> <i class="fas fa-list"></i> Lista de compras</p>
-            <button class="button is-warning is-fullwidth"> <i class="fas fa-check"></i>  Conferir produtos</button>
+            <button v-on:click="show=true" class="button is-warning is-fullwidth"> <i class="fas fa-check"></i>  Conferir produtos</button>
             <br>
             <br>
-            <b-table :data="produtos" :columns="columns"></b-table>
+            <b-table v-if="show" :data="produtos" :columns="columns"></b-table>
         </div>
+    </div>
+    {{show}}
     </div>
 </template>
 
 <script>
+import Camera from './Camera'
 import axios from 'axios';
 import { db } from '../firebase';
 import { async } from 'q';
 export default {
     name: 'chekout',
+    components: {
+        Camera
+    },
     data() {
         return {
+            show: false,
             produtos: [],
             columns: [
                 {
@@ -36,7 +44,9 @@ export default {
         }
     },
     methods: {
-
+        takePicture: () => {
+            this.show = true
+        }
     },
     firestore() {
         return {

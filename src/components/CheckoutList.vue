@@ -6,13 +6,14 @@
             <br>
             <br>
             <b-table :data="produtos" :columns="columns"></b-table>
-            <div><strong>Preço total: </strong>{{totalPrice}}</div>
         </div>
     </div>
 </template>
 
 <script>
+import axios from 'axios';
 import { db } from '../firebase';
+import { async } from 'q';
 export default {
     name: 'chekout',
     data() {
@@ -34,10 +35,22 @@ export default {
             ]
         }
     },
+    methods: {
+
+    },
     firestore() {
         return {
             produtos: db.collection('produtos')
         }
+    },
+
+    mounted() {
+        axios.get('http://127.0.0.1:5000/getprediction').then(res => console.log(res)).catch(
+            erro => {
+                console.log(erro)
+                axios.get('http://127.0.0.1:5000/getprediction').then(res => console.log(res))
+            }
+        )
     }
 }
 </script>
